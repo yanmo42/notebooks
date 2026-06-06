@@ -268,6 +268,23 @@ describe('WorkspaceKinds', () => {
       workspaceKinds.assertWorkspaceKindCount(0);
       workspaceKinds.assertEmptyStateVisible();
     });
+
+    it('should display access restricted state for non-admin users', () => {
+      cy.interceptApi(
+        'GET /api/:apiVersion/user',
+        { path: { apiVersion: NOTEBOOKS_API_VERSION } },
+        {
+          userId: 'non-admin-user',
+          clusterAdmin: false,
+        },
+      ).as('getUser');
+
+      setupWorkspaceKinds(0);
+
+      workspaceKinds.visit();
+
+      workspaceKinds.assertAccessRestrictedEmptyStateVisible();
+    });
   });
 
   describe('Filter', () => {

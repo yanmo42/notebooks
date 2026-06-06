@@ -21,15 +21,7 @@ interface AppContextProviderProps {
 }
 
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children }) => {
-  const { configSettings } = useSettings();
-  // TODO: replace userSettings with `const { configSettings, userSettings } = useSettings();` once integrated with users
-  const userSettings: UserSettings = useMemo(
-    () => ({
-      userId: 'kubeflow-user',
-      clusterAdmin: true,
-    }),
-    [],
-  );
+  const { configSettings, userSettings } = useSettings();
 
   const contextValue = useMemo(
     () => ({

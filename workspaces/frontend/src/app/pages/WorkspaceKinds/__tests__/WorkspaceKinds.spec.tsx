@@ -41,7 +41,7 @@ describe('WorkspaceKinds', () => {
 
     render(<WorkspaceKinds />);
 
-    expect(screen.getByTestId('workspace-kinds-access-empty-state')).toBeInTheDocument();
+    expect(screen.getByTestId('access-restricted-empty-state')).toBeInTheDocument();
     expect(
       screen.getByText('WorkspaceKind management is restricted to administrators'),
     ).toBeInTheDocument();

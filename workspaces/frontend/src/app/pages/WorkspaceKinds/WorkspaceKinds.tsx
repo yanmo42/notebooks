@@ -473,7 +473,7 @@ export const WorkspaceKinds: React.FunctionComponent = () => {
             titleText="WorkspaceKind management is restricted to administrators"
             icon={LockIcon}
             status="info"
-            data-testid="workspace-kinds-access-empty-state"
+            data-testid="access-restricted-empty-state"
           >
             <EmptyStateBody>
               Please contact your admin if you need changes to workspace configurations.

@@ -39,6 +39,10 @@ class WorkspaceKinds {
     return cy.findByTestId('empty-state');
   }
 
+  findAccessRestrictedEmptyState() {
+    return cy.findByTestId('access-restricted-empty-state');
+  }
+
   assertWorkspaceKindRowName(index: number, name: string) {
     return cy
       .findByTestId(`workspace-kind-row-${index}`)
@@ -176,6 +180,10 @@ class WorkspaceKinds {
 
   assertEmptyStateVisible() {
     this.findEmptyState().should('exist');
+  }
+
+  assertAccessRestrictedEmptyStateVisible() {
+    this.findAccessRestrictedEmptyState().should('exist');
   }
 
   findPagination() {
